@@ -1,0 +1,928 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ahiran Janseva Printing - AJP | Azamgarh</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;600;700;900&family=Oswald:wght@400;600;700&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --red: #e84118;
+  --blue: #1565c0;
+  --dark-blue: #0d3b7a;
+  --light-blue: #e8f0fe;
+  --gold: #ffd700;
+  --orange: #ff6b00;
+  --yellow: #ffc107;
+  --white: #ffffff;
+  --gray: #f5f7fa;
+  --text: #222;
+  --text-light: #666;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { font-family: 'Noto Sans Devanagari', 'Oswald', sans-serif; color: var(--text); overflow-x: hidden; }
+
+/* ===== NAVBAR ===== */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+  background: var(--blue);
+  box-shadow: 0 2px 20px rgba(0,0,0,0.3);
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 30px; height: 68px;
+}
+.nav-logo { display: flex; align-items: center; gap: 12px; text-decoration: none; cursor: pointer; }
+.nav-logo-letters { font-family: 'Oswald', sans-serif; font-size: 30px; font-weight: 700; line-height: 1; }
+.nav-logo-letters .a { color: var(--red); }
+.nav-logo-letters .jp { color: white; }
+.nav-logo-info { display: flex; flex-direction: column; }
+.nav-logo-name { font-family: 'Oswald', sans-serif; font-size: 13px; color: white; font-weight: 600; letter-spacing: 0.5px; }
+.nav-logo-tag { font-size: 10px; color: var(--gold); letter-spacing: 1px; }
+
+.nav-links { display: flex; align-items: center; gap: 4px; list-style: none; }
+.nav-links a {
+  color: rgba(255,255,255,0.85); text-decoration: none;
+  font-family: 'Oswald', sans-serif; font-size: 14px; font-weight: 500;
+  padding: 7px 12px; border-radius: 4px; transition: all 0.2s;
+  letter-spacing: 0.5px; cursor: pointer;
+}
+.nav-links a:hover, .nav-links a.active { background: var(--red); color: white; }
+.nav-call { background: var(--red) !important; color: white !important; }
+
+.hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 8px; }
+.hamburger span { display: block; width: 24px; height: 2px; background: white; border-radius: 2px; }
+
+/* ===== SECTIONS ===== */
+section { display: none; padding-top: 68px; min-height: 100vh; }
+section.active { display: block; }
+
+/* ===== HERO ===== */
+.hero {
+  background: linear-gradient(135deg, var(--blue) 0%, var(--dark-blue) 60%, #071440 100%);
+  min-height: calc(100vh - 68px);
+  display: flex; align-items: center;
+  position: relative; overflow: hidden; padding: 50px 40px;
+}
+.hero::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(circle at 80% 20%, rgba(232,65,24,0.15) 0%, transparent 50%),
+              radial-gradient(circle at 10% 80%, rgba(255,215,0,0.08) 0%, transparent 40%);
+}
+.hero-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; max-width: 1100px; margin: 0 auto; position: relative; z-index: 1; width: 100%; }
+
+.hero-badge { display: inline-block; background: rgba(232,65,24,0.2); border: 1px solid rgba(232,65,24,0.5); color: #ff8060; font-size: 12px; letter-spacing: 2px; text-transform: uppercase; padding: 6px 16px; border-radius: 20px; margin-bottom: 18px; font-family: 'Oswald', sans-serif; }
+.hero-title { font-family: 'Oswald', sans-serif; font-size: 52px; font-weight: 700; color: white; line-height: 1.05; margin-bottom: 8px; }
+.hero-title .red { color: var(--red); }
+.hero-tagline { font-size: 20px; color: var(--gold); margin-bottom: 20px; font-weight: 700; }
+.hero-desc { font-size: 15px; color: rgba(255,255,255,0.75); line-height: 1.8; margin-bottom: 30px; max-width: 440px; }
+.hero-btns { display: flex; gap: 12px; flex-wrap: wrap; }
+
+.btn-primary { background: var(--red); color: white; padding: 13px 24px; border: none; border-radius: 4px; font-family: 'Oswald', sans-serif; font-size: 15px; font-weight: 600; cursor: pointer; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; transition: all 0.2s; }
+.btn-primary:hover { background: #c0340f; transform: translateY(-2px); box-shadow: 0 8px 20px rgba(232,65,24,0.4); }
+.btn-secondary { background: transparent; color: white; padding: 13px 24px; border: 2px solid rgba(255,255,255,0.4); border-radius: 4px; font-family: 'Oswald', sans-serif; font-size: 15px; font-weight: 600; cursor: pointer; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; transition: all 0.2s; }
+.btn-secondary:hover { border-color: white; background: rgba(255,255,255,0.1); }
+
+.stat-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.stat-card { background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15); backdrop-filter: blur(10px); border-radius: 12px; padding: 18px; text-align: center; transition: all 0.3s; }
+.stat-card:hover { background: rgba(255,255,255,0.15); transform: translateY(-4px); }
+.stat-num { font-family: 'Oswald', sans-serif; font-size: 36px; font-weight: 700; color: var(--gold); line-height: 1; }
+.stat-label { font-size: 12px; color: rgba(255,255,255,0.7); margin-top: 4px; }
+
+.hero-offer { background: linear-gradient(135deg, var(--red), #c0340f); border-radius: 12px; padding: 18px 22px; display: flex; align-items: center; justify-content: space-between; border-left: 5px solid var(--gold); margin-top: 14px; }
+.offer-left .offer-title { color: white; font-size: 18px; font-weight: 700; }
+.offer-left .offer-sub { color: rgba(255,255,255,0.8); font-size: 13px; margin-top: 4px; }
+.offer-badge { background: white; color: var(--red); font-family: 'Oswald', sans-serif; font-size: 26px; font-weight: 700; width: 66px; height: 66px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-direction: column; line-height: 1; flex-shrink: 0; }
+.offer-badge small { font-size: 11px; font-weight: 600; }
+
+/* Features Strip */
+.features-strip { background: var(--red); padding: 16px 40px; display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; }
+.feature-item { display: flex; align-items: center; gap: 10px; color: white; }
+.feature-icon { font-size: 20px; }
+.feature-text { font-family: 'Oswald', sans-serif; font-size: 14px; font-weight: 600; letter-spacing: 0.5px; }
+
+/* Section common */
+.section-header { text-align: center; margin-bottom: 46px; }
+.section-tag { display: inline-block; background: var(--light-blue); color: var(--blue); font-size: 11px; letter-spacing: 2px; text-transform: uppercase; padding: 6px 16px; border-radius: 20px; font-family: 'Oswald', sans-serif; font-weight: 600; margin-bottom: 10px; }
+.section-title { font-family: 'Oswald', sans-serif; font-size: 34px; font-weight: 700; color: var(--dark-blue); }
+.section-title .red { color: var(--red); }
+
+/* Why Us */
+.why-section { padding: 60px 40px; background: var(--gray); }
+.why-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; max-width: 1000px; margin: 0 auto; }
+.why-card { background: white; border-radius: 12px; padding: 28px 22px; text-align: center; border-bottom: 4px solid transparent; box-shadow: 0 4px 16px rgba(0,0,0,0.06); transition: all 0.3s; }
+.why-card:hover { border-bottom-color: var(--red); transform: translateY(-6px); box-shadow: 0 12px 30px rgba(0,0,0,0.12); }
+.why-icon { font-size: 40px; margin-bottom: 12px; }
+.why-title { font-family: 'Oswald', sans-serif; font-size: 18px; font-weight: 700; color: var(--dark-blue); margin-bottom: 8px; }
+.why-desc { font-size: 14px; color: var(--text-light); line-height: 1.7; }
+
+/* ===== SERVICES PAGE ===== */
+.page-hero { background: linear-gradient(135deg, var(--blue), var(--dark-blue)); padding: 55px 40px; text-align: center; color: white; }
+.page-hero h1 { font-family: 'Oswald', sans-serif; font-size: 44px; font-weight: 700; margin-bottom: 10px; }
+.page-hero p { font-size: 17px; color: rgba(255,255,255,0.8); }
+
+.services-grid-section { padding: 55px 40px; background: var(--gray); }
+.services-main-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(270px, 1fr)); gap: 22px; max-width: 1200px; margin: 0 auto; }
+
+.service-card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 16px rgba(0,0,0,0.07); transition: all 0.3s; }
+.service-card:hover { transform: translateY(-8px); box-shadow: 0 16px 40px rgba(0,0,0,0.14); }
+.service-card-top { background: linear-gradient(135deg, var(--blue), var(--dark-blue)); padding: 26px 22px; text-align: center; position: relative; }
+.service-card-top::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 4px; background: var(--red); }
+.service-card-icon { font-size: 44px; margin-bottom: 8px; display: block; }
+.service-card-name { font-family: 'Oswald', sans-serif; font-size: 20px; font-weight: 700; color: white; }
+.service-card-badge { display: inline-block; background: var(--gold); color: #333; font-size: 10px; font-weight: 700; padding: 3px 10px; border-radius: 10px; margin-top: 6px; letter-spacing: 1px; font-family: 'Oswald', sans-serif; }
+
+.service-card-body { padding: 18px 22px; }
+.service-list { list-style: none; }
+.service-list li { padding: 7px 0; border-bottom: 1px dashed #eee; font-size: 14px; color: var(--text); display: flex; align-items: center; gap: 10px; }
+.service-list li:last-child { border-bottom: none; }
+.service-list li::before { content: '➤'; color: var(--red); font-size: 11px; flex-shrink: 0; }
+
+.service-cta { display: block; background: var(--red); color: white; text-align: center; padding: 12px; font-family: 'Oswald', sans-serif; font-size: 14px; font-weight: 600; text-decoration: none; letter-spacing: 0.5px; transition: background 0.2s; cursor: pointer; border: none; width: 100%; }
+.service-cta:hover { background: #c0340f; }
+
+/* Special category headers */
+.cat-header { background: linear-gradient(135deg, var(--dark-blue), var(--blue)); color: white; padding: 18px 30px; border-radius: 10px; margin: 40px auto 24px; max-width: 1200px; display: flex; align-items: center; gap: 14px; }
+.cat-header-icon { font-size: 30px; }
+.cat-header-text h3 { font-family: 'Oswald', sans-serif; font-size: 22px; font-weight: 700; }
+.cat-header-text p { font-size: 13px; color: rgba(255,255,255,0.75); margin-top: 2px; }
+.cat-header-badge { margin-left: auto; background: var(--red); color: white; font-family: 'Oswald', sans-serif; font-size: 12px; font-weight: 700; padding: 6px 14px; border-radius: 20px; letter-spacing: 1px; white-space: nowrap; }
+
+/* UV / Laser / Engraving special cards */
+.tech-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; max-width: 1200px; margin: 0 auto 40px; }
+.tech-card { border-radius: 12px; overflow: hidden; box-shadow: 0 4px 16px rgba(0,0,0,0.1); transition: all 0.3s; }
+.tech-card:hover { transform: translateY(-6px); box-shadow: 0 14px 36px rgba(0,0,0,0.15); }
+.tech-card-header { padding: 22px 20px 16px; text-align: center; }
+.tech-card-header .t-icon { font-size: 40px; margin-bottom: 8px; display: block; }
+.tech-card-header h3 { font-family: 'Oswald', sans-serif; font-size: 20px; font-weight: 700; color: white; }
+.tech-card-header p { font-size: 12px; color: rgba(255,255,255,0.8); margin-top: 4px; }
+.tc-uv .tech-card-header { background: linear-gradient(135deg, #1a237e, #283593); }
+.tc-laser .tech-card-header { background: linear-gradient(135deg, #b71c1c, #c62828); }
+.tc-engrave .tech-card-header { background: linear-gradient(135deg, #1b5e20, #2e7d32); }
+.tech-card-body { background: white; padding: 18px 20px; }
+.tech-list { list-style: none; }
+.tech-list li { padding: 7px 0; border-bottom: 1px dashed #eee; font-size: 14px; display: flex; align-items: center; gap: 10px; }
+.tech-list li:last-child { border-bottom: none; }
+.check { color: #2e7d32; font-weight: 700; flex-shrink: 0; }
+
+/* ===== GALLERY ===== */
+.gallery-section { padding: 55px 40px; background: var(--gray); }
+.gallery-filters { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; margin-bottom: 36px; }
+.filter-btn { padding: 8px 18px; border: 2px solid var(--blue); background: white; color: var(--blue); border-radius: 30px; font-family: 'Oswald', sans-serif; font-size: 13px; font-weight: 600; cursor: pointer; transition: all 0.2s; }
+.filter-btn:hover, .filter-btn.active { background: var(--blue); color: white; }
+.gallery-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 18px; max-width: 1200px; margin: 0 auto; }
+.gallery-item { background: white; border-radius: 10px; overflow: hidden; box-shadow: 0 4px 14px rgba(0,0,0,0.08); transition: all 0.3s; cursor: pointer; }
+.gallery-item:hover { transform: scale(1.04); box-shadow: 0 12px 30px rgba(0,0,0,0.15); }
+.gallery-thumb { height: 160px; display: flex; align-items: center; justify-content: center; font-size: 56px; }
+.gallery-thumb-label { padding: 10px 14px; font-family: 'Oswald', sans-serif; font-size: 14px; font-weight: 600; color: var(--dark-blue); text-align: center; }
+
+/* ===== CONTACT ===== */
+.contact-section { padding: 55px 40px; background: var(--gray); }
+.contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 36px; max-width: 1000px; margin: 0 auto; }
+.contact-info { display: flex; flex-direction: column; gap: 18px; }
+.contact-card { background: white; border-radius: 12px; padding: 22px; box-shadow: 0 4px 16px rgba(0,0,0,0.07); display: flex; gap: 16px; align-items: flex-start; transition: all 0.2s; }
+.contact-card:hover { transform: translateX(4px); border-left: 4px solid var(--red); }
+.contact-card-icon { width: 46px; height: 46px; background: var(--light-blue); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 22px; flex-shrink: 0; }
+.contact-card-title { font-family: 'Oswald', sans-serif; font-size: 15px; font-weight: 700; color: var(--dark-blue); margin-bottom: 4px; }
+.contact-card-text { font-size: 14px; color: var(--text); line-height: 1.6; }
+.contact-card-text a { color: var(--blue); text-decoration: none; font-weight: 600; }
+
+.contact-form { background: white; border-radius: 12px; padding: 32px; box-shadow: 0 4px 16px rgba(0,0,0,0.07); }
+.form-title { font-family: 'Oswald', sans-serif; font-size: 22px; font-weight: 700; color: var(--dark-blue); margin-bottom: 22px; }
+.form-group { margin-bottom: 16px; }
+.form-group label { display: block; font-size: 12px; font-weight: 700; color: var(--text-light); margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.5px; font-family: 'Oswald', sans-serif; }
+.form-group input, .form-group select, .form-group textarea { width: 100%; padding: 11px 14px; border: 2px solid #e0e8f0; border-radius: 8px; font-size: 14px; font-family: 'Noto Sans Devanagari', sans-serif; color: var(--text); transition: border-color 0.2s; background: #fafcff; }
+.form-group input:focus, .form-group select:focus, .form-group textarea:focus { outline: none; border-color: var(--blue); }
+.form-group textarea { height: 90px; resize: vertical; }
+.form-submit { background: var(--red); color: white; width: 100%; padding: 13px; border: none; border-radius: 8px; font-family: 'Oswald', sans-serif; font-size: 17px; font-weight: 700; cursor: pointer; letter-spacing: 1px; transition: all 0.2s; }
+.form-submit:hover { background: #c0340f; transform: translateY(-2px); box-shadow: 0 8px 20px rgba(232,65,24,0.3); }
+
+/* ===== ORDER ===== */
+.order-section { padding: 55px 40px; background: var(--gray); }
+.order-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 36px; max-width: 1000px; margin: 0 auto; }
+.order-form { background: white; border-radius: 12px; padding: 32px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); }
+.order-sidebar { display: flex; flex-direction: column; gap: 18px; }
+.order-info-card { background: white; border-radius: 12px; padding: 22px; box-shadow: 0 4px 16px rgba(0,0,0,0.07); border-top: 4px solid var(--red); }
+.order-info-card h3 { font-family: 'Oswald', sans-serif; font-size: 18px; font-weight: 700; color: var(--dark-blue); margin-bottom: 14px; }
+.process-steps { display: flex; flex-direction: column; gap: 12px; }
+.step { display: flex; gap: 12px; align-items: flex-start; }
+.step-num { width: 30px; height: 30px; background: var(--blue); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: 'Oswald', sans-serif; font-weight: 700; font-size: 13px; flex-shrink: 0; }
+.step-text strong { display: block; font-size: 13px; color: var(--dark-blue); margin-bottom: 2px; font-family: 'Oswald', sans-serif; }
+.step-text span { font-size: 12px; color: var(--text-light); }
+
+.whatsapp-order-btn { display: flex; align-items: center; justify-content: center; gap: 12px; background: #25D366; color: white; padding: 15px 22px; border-radius: 12px; text-decoration: none; font-family: 'Oswald', sans-serif; font-size: 17px; font-weight: 700; letter-spacing: 0.5px; transition: all 0.2s; }
+.whatsapp-order-btn:hover { background: #1aaa52; transform: translateY(-3px); box-shadow: 0 10px 24px rgba(37,211,102,0.35); }
+
+/* ===== FOOTER ===== */
+footer { background: var(--dark-blue); color: white; padding: 44px 40px 18px; }
+.footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 36px; max-width: 1100px; margin: 0 auto 36px; }
+.footer-brand .brand-name { font-family: 'Oswald', sans-serif; font-size: 24px; font-weight: 700; margin-bottom: 8px; }
+.footer-brand .brand-name span { color: var(--red); }
+.footer-brand .brand-tag { color: var(--gold); font-size: 13px; margin-bottom: 12px; }
+.footer-brand p { font-size: 13px; color: rgba(255,255,255,0.65); line-height: 1.8; max-width: 280px; }
+.footer-col h4 { font-family: 'Oswald', sans-serif; font-size: 15px; font-weight: 700; color: var(--gold); margin-bottom: 14px; letter-spacing: 1px; text-transform: uppercase; }
+.footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 9px; }
+.footer-col ul li a { color: rgba(255,255,255,0.65); text-decoration: none; font-size: 13px; transition: color 0.2s; cursor: pointer; display: flex; align-items: center; gap: 6px; }
+.footer-col ul li a:hover { color: white; }
+.footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 18px; text-align: center; font-size: 12px; color: rgba(255,255,255,0.45); max-width: 1100px; margin: 0 auto; }
+
+/* Alert */
+.alert-popup { position: fixed; top: 82px; right: 20px; background: #25D366; color: white; padding: 13px 20px; border-radius: 10px; font-family: 'Oswald', sans-serif; font-size: 14px; font-weight: 600; z-index: 9999; box-shadow: 0 8px 24px rgba(0,0,0,0.2); display: none; animation: slideIn 0.3s ease; }
+@keyframes slideIn { from { transform: translateX(100px); opacity: 0; } to { transform: translateX(0); opacity: 1; } }
+@keyframes fadeUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+.hero-text { animation: fadeUp 0.7s ease; }
+.hero-visual { animation: fadeUp 0.9s ease; }
+
+/* Map placeholder */
+.map-placeholder { background: linear-gradient(135deg, var(--light-blue), #dde8f8); border-radius: 12px; height: 170px; display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 8px; border: 2px dashed rgba(21,101,192,0.3); }
+.map-placeholder p { font-family: 'Oswald', sans-serif; font-size: 14px; color: var(--blue); font-weight: 600; text-align: center; }
+
+@media (max-width: 768px) {
+  nav { padding: 0 18px; }
+  .nav-links { display: none; }
+  .hamburger { display: flex; }
+  .hero { padding: 36px 18px; }
+  .hero-grid, .contact-grid, .order-grid, .footer-grid, .tech-cards { grid-template-columns: 1fr; gap: 24px; }
+  .hero-title { font-size: 38px; }
+  .why-grid { grid-template-columns: 1fr 1fr; }
+  .services-grid-section, .gallery-section, .contact-section, .order-section { padding: 40px 18px; }
+  .page-hero { padding: 40px 18px; }
+  .features-strip { gap: 16px; padding: 14px 18px; }
+  .cat-header { margin: 30px 0 18px; }
+  footer { padding: 36px 18px 16px; }
+}
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-thumb { background: var(--blue); border-radius: 3px; }
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav>
+  <div class="nav-logo" onclick="showSection('home')">
+    <div class="nav-logo-letters"><span class="a">A</span><span class="jp">JP</span></div>
+    <div class="nav-logo-info">
+      <span class="nav-logo-name">Ahiran Janseva Printing</span>
+      <span class="nav-logo-tag">सेवा भी समाधान भी</span>
+    </div>
+  </div>
+  <ul class="nav-links">
+    <li><a onclick="showSection('home')" class="active" id="nav-home">🏠 Home</a></li>
+    <li><a onclick="showSection('services')" id="nav-services">🖨️ Services</a></li>
+    <li><a onclick="showSection('gallery')" id="nav-gallery">🖼️ Gallery</a></li>
+    <li><a onclick="showSection('contact')" id="nav-contact">📞 Contact</a></li>
+    <li><a onclick="showSection('order')" id="nav-order" class="nav-call">📦 Order Now</a></li>
+  </ul>
+  <div class="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></div>
+</nav>
+
+<div class="alert-popup" id="alertPopup">✅ Done!</div>
+
+<!-- ==================== HOME ==================== -->
+<section id="home" class="active">
+  <div class="hero">
+    <div class="hero-grid">
+      <div class="hero-text">
+        <div class="hero-badge">✦ Azamgarh की No.1 Printing Shop ✦</div>
+        <div class="hero-title"><span class="red">AJP</span> Printing<br>Services</div>
+        <div class="hero-tagline">सेवा भी समाधान भी</div>
+        <p class="hero-desc">T-Shirt, Cup, Pillow, Banner, Visiting Card, School ID Card, UV Printing, Laser Cutting, Engraving और बहुत कुछ — सब कुछ एक ही जगह पर। Quality & Speed हमारी पहचान है।</p>
+        <div class="hero-btns">
+          <a class="btn-primary" onclick="showSection('order')">📦 Order करें</a>
+          <a class="btn-secondary" onclick="showSection('services')">Services देखें →</a>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="stat-cards">
+          <div class="stat-card"><div class="stat-num">500+</div><div class="stat-label">Happy Customers</div></div>
+          <div class="stat-card"><div class="stat-num">10+</div><div class="stat-label">Years Experience</div></div>
+          <div class="stat-card"><div class="stat-num">24hr</div><div class="stat-label">Fast Delivery</div></div>
+          <div class="stat-card"><div class="stat-num">80+</div><div class="stat-label">Services Available</div></div>
+        </div>
+        <div class="hero-offer">
+          <div class="offer-left">
+            <div class="offer-title">🎉 Special Offer!</div>
+            <div class="offer-sub">पहले ऑर्डर पर Flat Discount<br>Call: 8766200434</div>
+          </div>
+          <div class="offer-badge">20%<br><small>OFF</small></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="features-strip">
+    <div class="feature-item"><span class="feature-icon">✅</span><span class="feature-text">High Quality Print</span></div>
+    <div class="feature-item"><span class="feature-icon">⚡</span><span class="feature-text">Same Day Delivery</span></div>
+    <div class="feature-item"><span class="feature-icon">💰</span><span class="feature-text">Best Price</span></div>
+    <div class="feature-item"><span class="feature-icon">🎓</span><span class="feature-text">School ID Card</span></div>
+    <div class="feature-item"><span class="feature-icon">🔆</span><span class="feature-text">UV Printing</span></div>
+    <div class="feature-item"><span class="feature-icon">🎨</span><span class="feature-text">Free Design</span></div>
+  </div>
+
+  <div class="why-section">
+    <div class="section-header">
+      <div class="section-tag">हमें क्यों चुनें</div>
+      <div class="section-title">Why Choose <span class="red">AJP Printing?</span></div>
+    </div>
+    <div class="why-grid">
+      <div class="why-card"><div class="why-icon">🖨️</div><div class="why-title">Premium Quality</div><div class="why-desc">Latest Technology से Sharp, Vivid और Long-lasting Prints।</div></div>
+      <div class="why-card"><div class="why-icon">⚡</div><div class="why-title">Fast Turnaround</div><div class="why-desc">Urgent Orders के लिए Same Day Delivery उपलब्ध।</div></div>
+      <div class="why-card"><div class="why-icon">💰</div><div class="why-title">Affordable Prices</div><div class="why-desc">Market में सबसे किफायती दरों पर Best Quality।</div></div>
+      <div class="why-card"><div class="why-icon">🎓</div><div class="why-title">School Services</div><div class="why-desc">ID Card, Tie, Belt, Uniform Print — सभी School Items उपलब्ध।</div></div>
+      <div class="why-card"><div class="why-icon">🔆</div><div class="why-title">UV & Laser Cutting</div><div class="why-desc">Acrylic Sheet पर UV Printing, Laser Cutting और Engraving।</div></div>
+      <div class="why-card"><div class="why-icon">💬</div><div class="why-title">WhatsApp Support</div><div class="why-desc">WhatsApp पर Order करें और Delivery Track करें।</div></div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="brand-name"><span>AJP</span> Printing</div>
+        <div class="brand-tag">सेवा भी समाधान भी</div>
+        <p>Ahiran Janseva Printing — Azamgarh की भरोसेमंद Printing Service। 80+ Services एक ही जगह।</p>
+      </div>
+      <div class="footer-col"><h4>Quick Links</h4><ul>
+        <li><a onclick="showSection('home')">🏠 Home</a></li>
+        <li><a onclick="showSection('services')">🖨️ Services</a></li>
+        <li><a onclick="showSection('gallery')">🖼️ Gallery</a></li>
+        <li><a onclick="showSection('contact')">📞 Contact</a></li>
+        <li><a onclick="showSection('order')">📦 Order Now</a></li>
+      </ul></div>
+      <div class="footer-col"><h4>Contact</h4><ul>
+        <li><a>📞 8766200434</a></li>
+        <li><a>📞 9473713056</a></li>
+        <li><a>📍 Maltari, Bilariyaganj, Azamgarh</a></li>
+        <li><a>🕐 Mon-Sat: 9AM – 8PM</a></li>
+      </ul></div>
+    </div>
+    <div class="footer-bottom"><p>© 2025 Ahiran Janseva Printing (AJP) — All Rights Reserved | Ravi Yadav</p></div>
+  </footer>
+</section>
+
+<!-- ==================== SERVICES ==================== -->
+<section id="services">
+  <div class="page-hero">
+    <h1>🖨️ हमारी सभी Services</h1>
+    <p>80+ Printing Services — हर ज़रूरत के लिए, हर Budget में</p>
+  </div>
+
+  <div class="services-grid-section">
+
+    <!-- GARMENT PRINTING -->
+    <div class="cat-header">
+      <span class="cat-header-icon">👕</span>
+      <div class="cat-header-text"><h3>Garment Printing</h3><p>कपड़ों पर नाम, फोटो और Design की Printing</p></div>
+      <span class="cat-header-badge">SUBLIMATION</span>
+    </div>
+    <div class="services-main-grid">
+      <div class="service-card">
+        <div class="service-card-top"><span class="service-card-icon">👕</span><div class="service-card-name">Clothing Print</div></div>
+        <div class="service-card-body"><ul class="service-list">
+          <li>T-Shirt पर नाम/फोटो Print</li>
+          <li>Uniform Printing</li>
+          <li>टोपी (Cap) पर Print</li>
+          <li>रूमाल पर Print</li>
+        </ul></div>
+        <button class="service-cta" onclick="showSection('order')">Order करें →</button>
+      </div>
+      <div class="service-card">
+        <div class="service-card-top"><span class="service-card-icon">🎒</span><div class="service-card-name">School Items Print</div><div class="service-card-badge">🆕 NEW</div></div>
+        <div class="service-card-body"><ul class="service-list">
+          <li>🆔 School ID Card Printing</li>
+          <li>👔 School Tie पर Logo Print</li>
+          <li>👖 School Belt Printing</li>
+          <li>📚 School Bag Print</li>
+          <li>Uniform Name Tag</li>
+        </ul></div>
+        <button class="service-cta" onclick="showSection('order')">Order करें →</button>
+      </div>
+      <div class="service-card">
+        <div class="service-card-top"><span class="service-card-icon">🏠</span><div class="service-card-name">Home Decor Print</div></div>
+        <div class="service-card-body"><ul class="service-list">
+          <li>तकिया (Pillow) पर फोटो Print</li>
+          <li>पर्दा पर Print</li>
+          <li>Photo Frame</li>
+          <li>Wall Poster</li>
+        </ul></div>
+        <button class="service-cta" onclick="showSection('order')">Order करें →</button>
+      </div>
+    </div>
+
+    <!-- GIFT ITEMS -->
+    <div class="cat-header">
+      <span class="cat-header-icon">🎁</span>
+      <div class="cat-header-text"><h3>Gift & Promotional Items</h3><p>Special occasions के लिए Personalized Gifts</p></div>
+      <span class="cat-header-badge">POPULAR</span>
+    </div>
+    <div class="services-main-grid">
+      <div class="service-card">
+        <div class="service-card-top"><span class="service-card-icon">☕</span><div class="service-card-name">Mug & Bottle</div></div>
+        <div class="service-card-body"><ul class="service-list">
+          <li>Cup/Mug पर नाम/फोटो Print</li>
+          <li>Magic Mug (Color Changing)</li>
+          <li>Name Bottle (LED)</li>
+          <li>Water Bottle Print</li>
+        </ul></div>
+        <button class="service-cta" onclick="showSection('order')">Order करें →</button>
+      </div>
+      <div class="service-card">
+        <div class="service-card-top"><span class="service-card-icon">🖊️</span><div class="service-card-name">Pen & Stationery</div></div>
+        <div class="service-card-body"><ul class="service-list">
+          <li>कलम पर नाम Print</li>
+          <li>पेंसिल पर Print</li>
+          <li>Keychain Print</li>
+          <li>छल्ला (Ring) Print</li>
+        </ul></div>
+        <button class="service-cta" onclick="showSection('order')">Order करें →</button>
+      </div>
+      <div class="service-card">
+        <div class="service-card-top"><span class="service-card-icon">🏆</span><div class="service-card-name">Awards & Frames</div></div>
+        <div class="service-card-body"><ul class="service-list">
+          <li>मंदिर फोटो फ्रेम</li>
+          <li>Trophy Engraving</li>
+          <li>Award Plate</li>
+          <li>Certificate Frame</li>
+        </ul></div>
+        <button class="service-cta" onclick="showSection('order')">Order करें →</button>
+      </div>
+    </div>
+
+    <!-- BUSINESS PRINTING -->
+    <div class="cat-header">
+      <span class="cat-header-icon">📄</span>
+      <div class="cat-header-text"><h3>Business Printing</h3><p>Professional Business Documents & Marketing Materials</p></div>
+      <span class="cat-header-badge">FAST DELIVERY</span>
+    </div>
+    <div class="services-main-grid">
+      <div class="service-card">
+        <div class="service-card-top"><span class="service-card-icon">📇</span><div class="service-card-name">Cards & Stationery</div></div>
+        <div class="service-card-body"><ul class="service-list">
+          <li>Visiting Card</li>
+          <li>Letter Pad</li>
+          <li>Fees Raseed / Receipt</li>
+          <li>Envelope Printing</li>
+        </ul></div>
+        <button class="service-cta" onclick="showSection('order')">Order करें →</button>
+      </div>
+      <div class="service-card">
+        <div class="service-card-top"><span class="service-card-icon">📋</span><div class="service-card-name">Marketing Materials</div></div>
+        <div class="service-card-body"><ul class="service-list">
+          <li>Pamphlet / Brochure</li>
+          <li>Poster Printing</li>
+          <li>Sticker Printing</li>
+          <li>Calendar Printing</li>
+        </ul></div>
+        <button class="service-cta" onclick="showSection('order')">Order करें →</button>
+      </div>
+      <div class="service-card">
+        <div class="service-card-top"><span class="service-card-icon">🏷️</span><div class="service-card-name">Outdoor & Signage</div></div>
+        <div class="service-card-body"><ul class="service-list">
+          <li>Flex Banner / Hoarding</li>
+          <li>Board Printing</li>
+          <li>Standee Printing</li>
+          <li>Wall Painting Design</li>
+        </ul></div>
+        <button class="service-cta" onclick="showSection('order')">Order करें →</button>
+      </div>
+    </div>
+
+    <!-- ACRYLIC / UV / LASER -->
+    <div class="cat-header">
+      <span class="cat-header-icon">🔆</span>
+      <div class="cat-header-text"><h3>Acrylic & Advanced Printing</h3><p>UV Printing, Laser Cutting & Engraving Technology</p></div>
+      <span class="cat-header-badge">⭐ PREMIUM</span>
+    </div>
+    <div class="tech-cards" style="padding: 0 0px;">
+      <div class="tech-card tc-uv">
+        <div class="tech-card-header">
+          <span class="t-icon">🔆</span>
+          <h3>UV Printing</h3>
+          <p>सीधे Acrylic Sheet पर High Quality Color Print</p>
+        </div>
+        <div class="tech-card-body">
+          <ul class="tech-list">
+            <li><span class="check">✓</span> बैकलाइट बोर्ड</li>
+            <li><span class="check">✓</span> ग्लो साइन बोर्ड</li>
+            <li><span class="check">✓</span> दुकान का नाम चमकदार अक्षरों में</li>
+            <li><span class="check">✓</span> Waterproof Print</li>
+            <li><span class="check">✓</span> फेड नहीं होता</li>
+            <li><span class="check">✓</span> चमकदार Finish</li>
+          </ul>
+        </div>
+      </div>
+      <div class="tech-card tc-laser">
+        <div class="tech-card-header">
+          <span class="t-icon">✂️</span>
+          <h3>Laser Cutting</h3>
+          <p>किसी भी Shape या Design में सटीक Cutting</p>
+        </div>
+        <div class="tech-card-body">
+          <ul class="tech-list">
+            <li><span class="check">✓</span> गोल, चौकोर, Custom Shape</li>
+            <li><span class="check">✓</span> लोगो कटिंग</li>
+            <li><span class="check">✓</span> Acrylic Sheet Cutting</li>
+            <li><span class="check">✓</span> MDF Cutting</li>
+            <li><span class="check">✓</span> Intricate Design Cutting</li>
+            <li><span class="check">✓</span> किसी भी Size में</li>
+          </ul>
+        </div>
+      </div>
+      <div class="tech-card tc-engrave">
+        <div class="tech-card-header">
+          <span class="t-icon">🔧</span>
+          <h3>Engraving</h3>
+          <p>Machine से नाम या Design को उकेरना</p>
+        </div>
+        <div class="tech-card-body">
+          <ul class="tech-list">
+            <li><span class="check">✓</span> नाम Engraving</li>
+            <li><span class="check">✓</span> Logo Engraving</li>
+            <li><span class="check">✓</span> नेम प्लेट</li>
+            <li><span class="check">✓</span> अवॉर्ड ट्रॉफी</li>
+            <li><span class="check">✓</span> Wooden Engraving</li>
+            <li><span class="check">✓</span> Metal Engraving</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- ACRYLIC NAME PLATES -->
+    <div class="cat-header" style="margin-top: 30px;">
+      <span class="cat-header-icon">🪧</span>
+      <div class="cat-header-text"><h3>Acrylic Name Plates</h3><p>घर, दुकान और Office के लिए Premium Name Plates</p></div>
+      <span class="cat-header-badge">PREMIUM</span>
+    </div>
+    <div class="services-main-grid">
+      <div class="service-card">
+        <div class="service-card-top"><span class="service-card-icon">🏪</span><div class="service-card-name">Shop Name Plate</div></div>
+        <div class="service-card-body"><ul class="service-list">
+          <li>दुकान का Acrylic नेम प्लेट</li>
+          <li>LED Glow Name Board</li>
+          <li>Backlit Board</li>
+          <li>Custom Shape & Size</li>
+        </ul></div>
+        <button class="service-cta" onclick="showSection('order')">Order करें →</button>
+      </div>
+      <div class="service-card">
+        <div class="service-card-top"><span class="service-card-icon">🏢</span><div class="service-card-name">Office Name Plate</div></div>
+        <div class="service-card-body"><ul class="service-list">
+          <li>ऑफिस का नेम प्लेट</li>
+          <li>Cabin Name Board</li>
+          <li>Department Board</li>
+          <li>Directory Board</li>
+        </ul></div>
+        <button class="service-cta" onclick="showSection('order')">Order करें →</button>
+      </div>
+      <div class="service-card">
+        <div class="service-card-top"><span class="service-card-icon">🏠</span><div class="service-card-name">Home & Temple</div></div>
+        <div class="service-card-body"><ul class="service-list">
+          <li>घर का नेम प्लेट</li>
+          <li>मंदिर फोटो फ्रेम</li>
+          <li>Door Name Plate</li>
+          <li>Welcome Board</li>
+        </ul></div>
+        <button class="service-cta" onclick="showSection('order')">Order करें →</button>
+      </div>
+    </div>
+
+    <!-- EVENT PRINTING -->
+    <div class="cat-header">
+      <span class="cat-header-icon">💒</span>
+      <div class="cat-header-text"><h3>Event & Wedding Printing</h3><p>खास मौकों के लिए खास Printing</p></div>
+      <span class="cat-header-badge">TRENDING</span>
+    </div>
+    <div class="services-main-grid">
+      <div class="service-card">
+        <div class="service-card-top"><span class="service-card-icon">💍</span><div class="service-card-name">Wedding & Events</div></div>
+        <div class="service-card-body"><ul class="service-list">
+          <li>Wedding Card</li>
+          <li>Invitation Card</li>
+          <li>Birthday Banner</li>
+          <li>Event Flex</li>
+        </ul></div>
+        <button class="service-cta" onclick="showSection('order')">Order करें →</button>
+      </div>
+      <div class="service-card">
+        <div class="service-card-top"><span class="service-card-icon">🎓</span><div class="service-card-name">School & College</div></div>
+        <div class="service-card-body"><ul class="service-list">
+          <li>🆔 ID Card (School/College)</li>
+          <li>Admission Form</li>
+          <li>Marksheet Printing</li>
+          <li>Certificate Printing</li>
+          <li>Result Card</li>
+        </ul></div>
+        <button class="service-cta" onclick="showSection('order')">Order करें →</button>
+      </div>
+      <div class="service-card">
+        <div class="service-card-top"><span class="service-card-icon">🗳️</span><div class="service-card-name">Political & Religious</div></div>
+        <div class="service-card-body"><ul class="service-list">
+          <li>Election Banner</li>
+          <li>Poster Printing</li>
+          <li>धार्मिक फोटो Print</li>
+          <li>🕉️ Religious Frame</li>
+        </ul></div>
+        <button class="service-cta" onclick="showSection('order')">Order करें →</button>
+      </div>
+    </div>
+
+  </div><!-- end services-grid-section -->
+
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-brand"><div class="brand-name"><span>AJP</span> Printing</div><div class="brand-tag">सेवा भी समाधान भी</div><p>Azamgarh की #1 Printing Service — 80+ Services</p></div>
+      <div class="footer-col"><h4>Quick Links</h4><ul>
+        <li><a onclick="showSection('home')">🏠 Home</a></li>
+        <li><a onclick="showSection('gallery')">🖼️ Gallery</a></li>
+        <li><a onclick="showSection('order')">📦 Order Now</a></li>
+      </ul></div>
+      <div class="footer-col"><h4>Contact</h4><ul>
+        <li><a>📞 8766200434</a></li>
+        <li><a>📍 Maltari, Azamgarh</a></li>
+      </ul></div>
+    </div>
+    <div class="footer-bottom"><p>© 2025 AJP Printing — All Rights Reserved</p></div>
+  </footer>
+</section>
+
+<!-- ==================== GALLERY ==================== -->
+<section id="gallery">
+  <div class="page-hero">
+    <h1>🖼️ हमारा काम देखें</h1>
+    <p>हमारे Best Printed Products की Gallery</p>
+  </div>
+  <div class="gallery-section">
+    <div class="gallery-filters">
+      <button class="filter-btn active" onclick="filterGallery(this,'all')">All</button>
+      <button class="filter-btn" onclick="filterGallery(this,'garment')">Garment</button>
+      <button class="filter-btn" onclick="filterGallery(this,'school')">School</button>
+      <button class="filter-btn" onclick="filterGallery(this,'gift')">Gift Items</button>
+      <button class="filter-btn" onclick="filterGallery(this,'business')">Business</button>
+      <button class="filter-btn" onclick="filterGallery(this,'acrylic')">Acrylic/UV</button>
+      <button class="filter-btn" onclick="filterGallery(this,'outdoor')">Outdoor</button>
+    </div>
+    <div class="gallery-grid">
+      <div class="gallery-item" data-cat="garment"><div class="gallery-thumb" style="background:linear-gradient(135deg,#e3f2fd,#bbdefb)">👕</div><div class="gallery-thumb-label">T-Shirt Print</div></div>
+      <div class="gallery-item" data-cat="school"><div class="gallery-thumb" style="background:linear-gradient(135deg,#e8f5e9,#c8e6c9)">🆔</div><div class="gallery-thumb-label">School ID Card</div></div>
+      <div class="gallery-item" data-cat="school"><div class="gallery-thumb" style="background:linear-gradient(135deg,#fff3e0,#ffe0b2)">👔</div><div class="gallery-thumb-label">School Tie Print</div></div>
+      <div class="gallery-item" data-cat="school"><div class="gallery-thumb" style="background:linear-gradient(135deg,#f3e5f5,#e1bee7)">👖</div><div class="gallery-thumb-label">School Belt</div></div>
+      <div class="gallery-item" data-cat="gift"><div class="gallery-thumb" style="background:linear-gradient(135deg,#fff9c4,#fff59d)">☕</div><div class="gallery-thumb-label">Custom Mug</div></div>
+      <div class="gallery-item" data-cat="gift"><div class="gallery-thumb" style="background:linear-gradient(135deg,#fce4ec,#f8bbd9)">🛏️</div><div class="gallery-thumb-label">Photo Pillow</div></div>
+      <div class="gallery-item" data-cat="acrylic"><div class="gallery-thumb" style="background:linear-gradient(135deg,#e8eaf6,#c5cae9)">🔆</div><div class="gallery-thumb-label">UV Print Board</div></div>
+      <div class="gallery-item" data-cat="acrylic"><div class="gallery-thumb" style="background:linear-gradient(135deg,#e0f2f1,#b2dfdb)">✂️</div><div class="gallery-thumb-label">Laser Cutting</div></div>
+      <div class="gallery-item" data-cat="acrylic"><div class="gallery-thumb" style="background:linear-gradient(135deg,#f1f8e9,#dcedc8)">🔧</div><div class="gallery-thumb-label">Engraving</div></div>
+      <div class="gallery-item" data-cat="acrylic"><div class="gallery-thumb" style="background:linear-gradient(135deg,#e3f2fd,#90caf9)">🪧</div><div class="gallery-thumb-label">Acrylic Name Plate</div></div>
+      <div class="gallery-item" data-cat="business"><div class="gallery-thumb" style="background:linear-gradient(135deg,#e8f5e9,#a5d6a7)">📇</div><div class="gallery-thumb-label">Visiting Cards</div></div>
+      <div class="gallery-item" data-cat="outdoor"><div class="gallery-thumb" style="background:linear-gradient(135deg,#e0f7fa,#b2ebf2)">🏷️</div><div class="gallery-thumb-label">Flex Banner</div></div>
+      <div class="gallery-item" data-cat="gift"><div class="gallery-thumb" style="background:linear-gradient(135deg,#fffde7,#fff9c4)">🖊️</div><div class="gallery-thumb-label">Printed Pen</div></div>
+      <div class="gallery-item" data-cat="business"><div class="gallery-thumb" style="background:linear-gradient(135deg,#fce4ec,#f48fb1)">💒</div><div class="gallery-thumb-label">Wedding Card</div></div>
+      <div class="gallery-item" data-cat="school"><div class="gallery-thumb" style="background:linear-gradient(135deg,#f3e5f5,#ce93d8)">🎓</div><div class="gallery-thumb-label">Certificate Print</div></div>
+      <div class="gallery-item" data-cat="acrylic"><div class="gallery-thumb" style="background:linear-gradient(135deg,#e8eaf6,#9fa8da)">🕉️</div><div class="gallery-thumb-label">Temple Frame</div></div>
+    </div>
+  </div>
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-brand"><div class="brand-name"><span>AJP</span> Printing</div><div class="brand-tag">सेवा भी समाधान भी</div><p>Azamgarh की #1 Printing Service</p></div>
+      <div class="footer-col"><h4>Quick Links</h4><ul>
+        <li><a onclick="showSection('home')">🏠 Home</a></li>
+        <li><a onclick="showSection('services')">🖨️ Services</a></li>
+        <li><a onclick="showSection('order')">📦 Order</a></li>
+      </ul></div>
+      <div class="footer-col"><h4>Contact</h4><ul>
+        <li><a>📞 8766200434</a></li>
+        <li><a>📍 Maltari, Azamgarh</a></li>
+      </ul></div>
+    </div>
+    <div class="footer-bottom"><p>© 2025 AJP Printing — All Rights Reserved</p></div>
+  </footer>
+</section>
+
+<!-- ==================== CONTACT ==================== -->
+<section id="contact">
+  <div class="page-hero">
+    <h1>📞 हमसे संपर्क करें</h1>
+    <p>कोई भी सवाल हो, हम हमेशा तैयार हैं</p>
+  </div>
+  <div class="contact-section">
+    <div class="contact-grid">
+      <div class="contact-info">
+        <div class="contact-card">
+          <div class="contact-card-icon">📞</div>
+          <div><div class="contact-card-title">Phone / WhatsApp</div><div class="contact-card-text"><a href="tel:8766200434">8766200434</a><br><a href="tel:9473713056">9473713056</a></div></div>
+        </div>
+        <div class="contact-card">
+          <div class="contact-card-icon">📍</div>
+          <div><div class="contact-card-title">हमारा पता</div><div class="contact-card-text">Maltari, Bilariyaganj to Jiyanpur Road,<br>Azamgarh, Uttar Pradesh</div></div>
+        </div>
+        <div class="contact-card">
+          <div class="contact-card-icon">🕐</div>
+          <div><div class="contact-card-title">खुलने का समय</div><div class="contact-card-text">सोमवार – शनिवार: 9:00 AM – 8:00 PM<br>रविवार: 10:00 AM – 4:00 PM</div></div>
+        </div>
+        <a href="https://wa.me/918766200434" class="whatsapp-order-btn">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          WhatsApp पर बात करें
+        </a>
+        <div class="map-placeholder">
+          <div style="font-size:32px">🗺️</div>
+          <p>Maltari, Bilariyaganj to Jiyanpur Road<br>Azamgarh, UP</p>
+        </div>
+      </div>
+      <div class="contact-form">
+        <div class="form-title">✉️ Message भेजें</div>
+        <div class="form-group"><label>आपका नाम</label><input type="text" placeholder="अपना नाम लिखें" id="c-name"></div>
+        <div class="form-group"><label>Phone Number</label><input type="tel" placeholder="अपना नंबर लिखें" id="c-phone"></div>
+        <div class="form-group"><label>Subject</label>
+          <select id="c-subject">
+            <option>Service के बारे में पूछना है</option>
+            <option>Price जाननी है</option>
+            <option>School ID Card / Tie / Belt</option>
+            <option>UV Printing / Laser Cutting</option>
+            <option>Order करना है</option>
+            <option>Complaint / Feedback</option>
+          </select>
+        </div>
+        <div class="form-group"><label>Message</label><textarea placeholder="यहाँ अपना message लिखें..." id="c-message"></textarea></div>
+        <button class="form-submit" onclick="submitForm()">📨 Message भेजें</button>
+      </div>
+    </div>
+  </div>
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-brand"><div class="brand-name"><span>AJP</span> Printing</div><div class="brand-tag">सेवा भी समाधान भी</div><p>Azamgarh की #1 Printing Service</p></div>
+      <div class="footer-col"><h4>Quick Links</h4><ul>
+        <li><a onclick="showSection('home')">🏠 Home</a></li>
+        <li><a onclick="showSection('services')">🖨️ Services</a></li>
+        <li><a onclick="showSection('order')">📦 Order</a></li>
+      </ul></div>
+      <div class="footer-col"><h4>Contact</h4><ul>
+        <li><a>📞 8766200434</a></li>
+        <li><a>📍 Maltari, Azamgarh</a></li>
+      </ul></div>
+    </div>
+    <div class="footer-bottom"><p>© 2025 AJP Printing — All Rights Reserved</p></div>
+  </footer>
+</section>
+
+<!-- ==================== ORDER ==================== -->
+<section id="order">
+  <div class="page-hero" style="background:linear-gradient(135deg,var(--red),#a02b0a)">
+    <h1>📦 Order करें</h1>
+    <p>अपनी Printing का Order अभी दें — Fast & Easy!</p>
+  </div>
+  <div class="order-section">
+    <div class="order-grid">
+      <div class="order-form">
+        <div class="form-title">🛒 Order Form</div>
+        <div class="form-group"><label>आपका नाम *</label><input type="text" placeholder="पूरा नाम" id="o-name"></div>
+        <div class="form-group"><label>WhatsApp Number *</label><input type="tel" placeholder="WhatsApp नंबर" id="o-phone"></div>
+        <div class="form-group"><label>Service चुनें *</label>
+          <select id="o-service">
+            <option>-- Service चुनें --</option>
+            <optgroup label="🎓 School Items">
+              <option>School ID Card</option>
+              <option>School Tie Printing</option>
+              <option>School Belt Printing</option>
+              <option>School Uniform Name Tag</option>
+            </optgroup>
+            <optgroup label="👕 Garment">
+              <option>T-Shirt Printing</option>
+              <option>Cap/टोपी Printing</option>
+              <option>Uniform Printing</option>
+            </optgroup>
+            <optgroup label="🎁 Gift Items">
+              <option>Mug/Cup Printing</option>
+              <option>Pillow/तकिया Printing</option>
+              <option>Pen/कलम Printing</option>
+              <option>Name Bottle</option>
+            </optgroup>
+            <optgroup label="🔆 Advanced">
+              <option>UV Printing (Acrylic)</option>
+              <option>Laser Cutting</option>
+              <option>Engraving</option>
+              <option>Acrylic Name Plate</option>
+            </optgroup>
+            <optgroup label="📄 Business">
+              <option>Visiting Card</option>
+              <option>Banner/Flex</option>
+              <option>Pamphlet/Brochure</option>
+              <option>Wedding Card</option>
+              <option>Sticker Printing</option>
+            </optgroup>
+            <option>Other / अन्य</option>
+          </select>
+        </div>
+        <div class="form-group"><label>Quantity</label><input type="number" placeholder="जैसे: 50, 100..." id="o-qty" min="1"></div>
+        <div class="form-group"><label>Delivery कब चाहिए?</label>
+          <select id="o-delivery">
+            <option>Same Day (Urgent)</option>
+            <option>1-2 दिन में</option>
+            <option>3-5 दिन में</option>
+            <option>1 हफ्ते में</option>
+          </select>
+        </div>
+        <div class="form-group"><label>Design Instructions</label><textarea placeholder="नाम, फोटो, रंग, design की जानकारी यहाँ लिखें..." id="o-details"></textarea></div>
+        <button class="form-submit" onclick="submitOrder()">🚀 Order Submit करें</button>
+      </div>
+
+      <div class="order-sidebar">
+        <div class="order-info-card">
+          <h3>📋 Order Process</h3>
+          <div class="process-steps">
+            <div class="step"><div class="step-num">1</div><div class="step-text"><strong>Order दें</strong><span>Form भरें या WhatsApp करें</span></div></div>
+            <div class="step"><div class="step-num">2</div><div class="step-text"><strong>Design Confirm</strong><span>हम Design बनाकर भेजेंगे</span></div></div>
+            <div class="step"><div class="step-num">3</div><div class="step-text"><strong>Printing शुरू</strong><span>Approve होने पर Printing</span></div></div>
+            <div class="step"><div class="step-num">4</div><div class="step-text"><strong>Delivery</strong><span>घर पर या Shop से Pickup</span></div></div>
+          </div>
+        </div>
+        <div class="order-info-card">
+          <h3>💡 जरूरी जानकारी</h3>
+          <div class="process-steps">
+            <div class="step"><div class="step-num" style="background:var(--red)">✓</div><div class="step-text"><strong>Free Design</strong><span>Basic Design बिल्कुल मुफ्त</span></div></div>
+            <div class="step"><div class="step-num" style="background:var(--red)">✓</div><div class="step-text"><strong>50% Advance</strong><span>बाकी Delivery पर</span></div></div>
+            <div class="step"><div class="step-num" style="background:var(--red)">✓</div><div class="step-text"><strong>HD Photo भेजें</strong><span>Clear Print के लिए HD Photo</span></div></div>
+            <div class="step"><div class="step-num" style="background:var(--red)">✓</div><div class="step-text"><strong>School Bulk Order</strong><span>School ID Card पर Special Discount</span></div></div>
+          </div>
+        </div>
+        <a href="https://wa.me/918766200434?text=नमस्ते! मुझे Printing का Order करना है।" class="whatsapp-order-btn">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          WhatsApp पर Order करें
+        </a>
+      </div>
+    </div>
+  </div>
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-brand"><div class="brand-name"><span>AJP</span> Printing</div><div class="brand-tag">सेवा भी समाधान भी</div><p>Azamgarh की #1 Printing Service</p></div>
+      <div class="footer-col"><h4>Quick Links</h4><ul>
+        <li><a onclick="showSection('home')">🏠 Home</a></li>
+        <li><a onclick="showSection('services')">🖨️ Services</a></li>
+        <li><a onclick="showSection('contact')">📞 Contact</a></li>
+      </ul></div>
+      <div class="footer-col"><h4>Contact</h4><ul>
+        <li><a>📞 8766200434</a></li>
+        <li><a>📍 Maltari, Azamgarh</a></li>
+      </ul></div>
+    </div>
+    <div class="footer-bottom"><p>© 2025 AJP Printing — All Rights Reserved | Ravi Yadav</p></div>
+  </footer>
+</section>
+
+<script>
+function showSection(id) {
+  document.querySelectorAll('section').forEach(s => s.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('active'));
+  const el = document.getElementById('nav-' + id);
+  if (el) el.classList.add('active');
+  window.scrollTo(0, 0);
+}
+
+function filterGallery(btn, cat) {
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.gallery-item').forEach(item => {
+    item.style.display = (cat === 'all' || item.dataset.cat === cat) ? 'block' : 'none';
+  });
+}
+
+function showAlert(msg) {
+  const p = document.getElementById('alertPopup');
+  p.textContent = msg; p.style.display = 'block';
+  setTimeout(() => p.style.display = 'none', 3000);
+}
+
+function submitForm() {
+  if (!document.getElementById('c-name').value || !document.getElementById('c-phone').value) {
+    showAlert('⚠️ कृपया नाम और नंबर भरें!'); return;
+  }
+  showAlert('✅ Message भेज दिया गया!');
+  ['c-name','c-phone','c-message'].forEach(id => document.getElementById(id).value = '');
+}
+
+function submitOrder() {
+  const name = document.getElementById('o-name').value;
+  const phone = document.getElementById('o-phone').value;
+  const service = document.getElementById('o-service').value;
+  if (!name || !phone || service === '-- Service चुनें --') {
+    showAlert('⚠️ कृपया सभी जरूरी जानकारी भरें!'); return;
+  }
+  showAlert('🎉 Order Submit हो गया! जल्द Call करेंगे।');
+  ['o-name','o-phone','o-qty','o-details'].forEach(id => document.getElementById(id).value = '');
+}
+
+function toggleMenu() {
+  const links = document.querySelector('.nav-links');
+  const isOpen = links.style.display === 'flex';
+  Object.assign(links.style, {
+    display: isOpen ? 'none' : 'flex',
+    flexDirection: 'column',
+    position: 'absolute',
+    top: '68px', left: '0', right: '0',
+    background: '#1565c0',
+    padding: '10px 20px',
+    zIndex: '999'
+  });
+}
+</script>
+</body>
+</html>
